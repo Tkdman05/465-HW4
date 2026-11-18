@@ -36,22 +36,22 @@
         "Containers": {
             "6d4ddc8ed20ac0d881ebf869e8cf5c5074350d84d556ed115b1c5d8824820553": {
                 "Name": "mock-c2",
-                "EndpointID": "f8974c4accd08b52da32fc2bb99ecadbda743e4fcbf10cd80dd4c6d7668224e9",
-                "MacAddress": "fe:40:f0:59:0b:3a",
+                "EndpointID": "3772f4db307ef806549ab4848fd3d13534a2624e5bb2e748cab3f905609f76c7",
+                "MacAddress": "5a:e6:68:b7:78:c7",
                 "IPv4Address": "172.30.0.66/24",
                 "IPv6Address": ""
             },
             "931f55fc06a78948657d30a89b7b799bfe5a3699e03433eda5fc88e218cc4113": {
                 "Name": "web-lab",
-                "EndpointID": "fff11236577badc8ddc184548f94b7c6d00fb0cf305088e9d0010586e563454c",
-                "MacAddress": "fa:e0:aa:71:54:16",
+                "EndpointID": "32e6087158a7e48cb92447d981581683cc9d437fd150a3f67aafd815db90e312",
+                "MacAddress": "ea:43:20:79:b4:a8",
                 "IPv4Address": "172.30.0.40/24",
                 "IPv6Address": ""
             },
             "ceca167795375a6b8503ced4d544618f79fe93a8c20b840cd1ca5636284ccd7b": {
                 "Name": "agent-node",
-                "EndpointID": "3a81f119263e1fd136b61c0472bced1c980c648b3688b924489dde2ba0afa9e6",
-                "MacAddress": "56:9c:56:d1:10:c2",
+                "EndpointID": "b26a05e7317aea19a4b166fd175ec984f4204de1b5381ac9632becaa8f72ccf6",
+                "MacAddress": "06:be:a4:5b:3d:e6",
                 "IPv4Address": "172.30.0.10/24",
                 "IPv6Address": ""
             }

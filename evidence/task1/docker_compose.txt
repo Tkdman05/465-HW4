@@ -1,4 +1,4 @@
-NAME         IMAGE                                                                     COMMAND                  SERVICE      CREATED          STATUS          PORTS
-agent-node   sha256:a20e79908fff80282c01a5980e1ff23cbdeffe7a797012f6042a63760ea0a215   "sleep infinity"         agent-node   14 minutes ago   Up 14 minutes   
-mock-c2      sha256:00c24e3d70d683160140cddf4fe7e60190c1d10f909fc49b7912c53166f45bc9   "python3 /app/c2.py"     mock-c2      14 minutes ago   Up 14 minutes   
-web-lab      sha256:b6ad06aa4e55cfd548b2e3f854efb2a361e4711320b80ebe541b698a3c8166aa   "python3 -m http.ser…"   web-lab      14 minutes ago   Up 14 minutes   
+NAME         IMAGE                                                                     COMMAND                  SERVICE      CREATED      STATUS       PORTS
+agent-node   sha256:a20e79908fff80282c01a5980e1ff23cbdeffe7a797012f6042a63760ea0a215   "sleep infinity"         agent-node   2 days ago   Up 2 hours   
+mock-c2      sha256:00c24e3d70d683160140cddf4fe7e60190c1d10f909fc49b7912c53166f45bc9   "python3 /app/c2.py"     mock-c2      2 days ago   Up 2 hours   
+web-lab      sha256:b6ad06aa4e55cfd548b2e3f854efb2a361e4711320b80ebe541b698a3c8166aa   "python3 -m http.ser…"   web-lab      2 days ago   Up 2 hours   
