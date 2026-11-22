@@ -1,4 +1,4 @@
-# HW4 — Task 1: Build the Local Network Lab
+# Task 1: Build the Local Network Lab
 
 Builds the Docker lab: three containers (**agent-node**, **web-lab**, **mock-c2**) on a fixed-IP bridge network, plus the mock skill and mock C2 receiver used by the rest of the assignment.
 
@@ -21,7 +21,7 @@ docker compose exec agent-node sha256sum /app/fake_secrets.txt
 ```
 Matching hashes confirm the leak works before any defenses are added.
 
-# HW4 — Task 2: Scan, Capture, and Reconstruct the Event
+# Task 2: Scan, Capture, and Reconstruct the Event
 
 Acts as the investigator: discovers the unauthorized TCP 9009 listener via a scoped Nmap scan, records the exfiltration live in a packet capture, and reconstructs it with TShark. Also produces a clean baseline capture for Task 4's false-positive testing.
 
@@ -47,7 +47,7 @@ tshark -r hw4-malicious.pcap -q --export-objects http,objs/
 
 **Output files:** `hw4-malicious.pcap`, `hw4-clean.pcap` — both required for Task 4's offline Suricata evaluation.
 
-# HW4 — Task 3: Default-Deny Egress for the Agent Container
+# Task 3: Default-Deny Egress for the Agent Container
 
 Contains the incident with a stateful packet-filter firewall: agent-node may open connections only to web-lab, while every other outbound connection — especially to mock-c2 — is dropped and logged.
 
@@ -69,7 +69,7 @@ sudo iptables -L HW4_AGENT_EGRESS -v -n                                   # Chec
 ```
 Five required tests confirm the policy: benign fetch allowed, exfiltration blocked, another unapproved port blocked, existing/reply traffic allowed, and unrelated Docker traffic unaffected.
 
-# HW4 — Task 4: Three Suricata Rules
+# Task 4: Three Suricata Rules
 
 Adds detection: three signature-based rules in `local.rules`, one per stage of the incident, run offline against both PCAPs to classify results as true/false positives/negatives.
 
