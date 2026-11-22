@@ -46,3 +46,41 @@ tshark -r hw4-malicious.pcap -q --export-objects http,objs/
 ```
 
 **Output files:** `hw4-malicious.pcap`, `hw4-clean.pcap` — both required for Task 4's offline Suricata evaluation.
+
+# HW4 — Task 3: Default-Deny Egress for the Agent Container
+
+Contains the incident with a stateful packet-filter firewall: agent-node may open connections only to web-lab, while every other outbound connection — especially to mock-c2 — is dropped and logged.
+
+**Bridge prerequisite:** since the three containers share one Linux bridge, bridged traffic only reaches `iptables` when `br_netfilter` is loaded:
+```bash
+modprobe br_netfilter
+sysctl -w net.bridge.bridge-nf-call-iptables=1
+```
+
+**Policy (in `firewall.sh`, via a custom chain jumped to from `DOCKER-USER`):** allow established/related traffic; allow agent-node → web-lab:8000; log and drop agent-node → mock-c2:8080; drop all other new connections from agent-node; leave unrelated Docker traffic unchanged.
+
+**Scripts:** `firewall.sh` (run with `sudo`) applies the policy; `firewall-reset.sh` removes only the course-added chain and jump.
+
+**Verify:**
+```bash
+docker compose exec agent-node curl http://172.30.0.40:8000/benign.html   # Allowed
+docker compose exec agent-node ./mock_skill.sh exfiltrate-course-file     # Blocked (times out)
+sudo iptables -L HW4_AGENT_EGRESS -v -n                                   # Check counters
+```
+Five required tests confirm the policy: benign fetch allowed, exfiltration blocked, another unapproved port blocked, existing/reply traffic allowed, and unrelated Docker traffic unaffected.
+
+# HW4 — Task 4: Three Suricata Rules
+
+Adds detection: three signature-based rules in `local.rules`, one per stage of the incident, run offline against both PCAPs to classify results as true/false positives/negatives.
+
+**Rules:** (1) fake-secret token in an outbound HTTP request body; (2) `CSCE465-COURSE-MARKER` in the HTTP response body from web-lab; (3) a TCP connection from agent-node to mock-c2:8080. Each rule has a unique SID plus `msg`, `sid`, `rev`, direction, and `flow`/HTTP/`flags` keywords.
+
+**Run offline:**
+```bash
+mkdir -p suricata-malicious suricata-clean
+suricata -k none -r hw4-malicious.pcap -S local.rules -l suricata-malicious
+suricata -k none -r hw4-clean.pcap -S local.rules -l suricata-clean
+```
+`-k none` disables TCP checksum validation, since bridge-captured packets carry unfinished checksums that would otherwise be discarded. Alerts appear in each output directory's `fast.log`.
+
+**Expected result:** all three rules alert once on `hw4-malicious.pcap` (true positives) and produce no alerts on `hw4-clean.pcap` (true negatives).
