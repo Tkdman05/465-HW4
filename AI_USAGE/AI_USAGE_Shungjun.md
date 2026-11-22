@@ -6,7 +6,7 @@
 
 ## Purpose
 
-I used Codex to help implement and verify my group's Task 3 firewall and Task 4 Suricata rules, collect test evidence from the course Ubuntu VM, and prepare the Task 3-5 portions of the report. Codex also helped edit tables, crop screenshots, and make a Google Docs-ready copy. The simulated `agent-node` in the lab did not use Codex to decide whether to run the mock skill; we manually triggered the skill as the assignment directed.
+I used Codex to help implement and verify my group's Task 3 firewall and Task 4 Suricata rules. The simulated `agent-node` in the lab did not use Codex to decide whether to run the mock skill; we manually triggered the skill as the assignment directed.
 
 ## AI conversation log files
 
@@ -15,12 +15,11 @@ I used Codex to help implement and verify my group's Task 3 firewall and Task 4 
 ## What I used
 
 - Codex-assisted `firewall.sh`, `firewall-reset.sh`, and the three signatures in `local.rules`.
-- Codex-assisted test commands, captured outputs, counters, kernel log excerpts, Suricata alerts, and terminal screenshots in `evidence/task3/` and `evidence/task4/`.
-- Codex-assisted writing and layout for Tasks 3-5 of `report.pdf`.
+- Codex-assisted test commands, captured outputs and counters, in `evidence/task3/` and `evidence/task4/`.
 
 ## What I changed
 
-I asked Codex to use the group's existing repository and captures, run the tests in the Ubuntu VM, crop screenshots to the terminal, make the tables and explanations more natural, and add the incident summary. The `mock_skill.sh` file also needed its executable bit set so the Task 3 test could run. I should review the final report wording and edit anything that does not reflect my own understanding before submitting.
+I asked Codex to use the group's existing repository and captures, how to run the tests in the Ubuntu VM and modify the `mock_skill.sh` file also needed its executable bit set so the Task 3 test could run.
 
 ## How I tested it
 
