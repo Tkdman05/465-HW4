@@ -10,7 +10,7 @@ I used Codex to help implement and verify my group's Task 3 firewall and Task 4 
 
 ## AI conversation log files
 
-- `AI_CONVERSATION_LOG.md` contains the relevant prompts and final AI replies from this Codex chat. Intermediate tool traces are omitted and the VM password is redacted.
+- `AI_CONVERSATION_LOG_Shungjun.md` contains the relevant prompts and final AI replies from this Codex chat. Intermediate tool traces are omitted and the VM password is redacted.
 
 ## What I used
 
