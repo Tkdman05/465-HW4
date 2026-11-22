@@ -1,0 +1,7 @@
+Task 4 Suricata offline evaluation, Suricata 7.0.3, -k none, -S local.rules
+SID 1000001 fake-secret HTTP request body: malicious TP (1 alert); clean TN (0 alerts)
+SID 1000002 indirect-injection HTTP response marker: malicious TP (1 alert); clean TN (0 alerts)
+SID 1000003 agent-node to mock-c2 TCP SYN: malicious TP (1 alert); clean TN (0 alerts)
+Malicious capture: 22 packets read, 3 fast.log lines.
+Clean capture: 12 packets read, 0 fast.log lines.
+See malicious-fast.log and clean-fast.log for raw alert output.

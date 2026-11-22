@@ -1,0 +1,1 @@
+firewall-reset.sh completed; custom chain absent (iptables -L exit 1); DOCKER-USER jump absent (iptables -C exit 2).

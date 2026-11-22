@@ -1,0 +1,3 @@
+alert http 172.30.0.10 any -> 172.30.0.66 8080 (msg:"HW4 fake-secret exfiltration"; flow:established,to_server; http.request_body; content:"CSCE465-FAKE-TOKEN-989136211af9af3a"; sid:1000001; rev:1;)
+alert http 172.30.0.40 8000 -> 172.30.0.10 any (msg:"HW4 indirect-injection marker"; flow:established,to_client; http.response_body; content:"CSCE465-COURSE-MARKER"; sid:1000002; rev:1;)
+alert tcp 172.30.0.10 any -> 172.30.0.66 8080 (msg:"HW4 mock-C2 connection"; flow:to_server,stateless; flags:S; sid:1000003; rev:1;)
